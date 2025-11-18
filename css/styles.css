@@ -1,0 +1,140 @@
+/* Estilo empresarial — restaurante */
+:root{
+  --bg:#eff3f6; /* light warm */
+  --card:#ffffff;
+  --accent:#224fba; /* deep wine */
+  --accent-2:#6aa7d9; /* warm gold */
+  --muted:#6b6b6b;
+  --radius:12px;
+}
+*{box-sizing:border-box}
+
+html,body{height:100%}
+
+body{
+  margin:0;
+  font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+  background:linear-gradient(180deg,var(--bg),#efe7e2);
+  color:#222;
+}
+.wrap{width:100%;max-width:1100px;padding:24px;margin:0 auto}
+
+/* Header */
+.site-header{background:linear-gradient(90deg, rgba(34,79,186,0.98), rgba(106,167,217,0.95));color:#fff}
+.header-inner{display:flex;justify-content:space-between;align-items:center;padding:14px 24px}
+.brand{display:flex;flex-direction:column}
+.logo{font-weight:700;font-size:1.2rem;letter-spacing:0.6px}
+.tag{font-size:0.85rem;opacity:0.95}
+.contact{font-weight:600}
+.contact a{color:#fff;text-decoration:none}
+
+/* Hero / main card */
+.hero{padding:36px 0}
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:0 10px 30px rgba(17,24,39,0.08);
+  padding:34px;
+}
+.card h1{margin:0 0 10px;font-size:1.6rem;font-weight:700}
+.lead{color:var(--muted);margin:0 0 18px;font-size:1rem}
+.form{display:flex;flex-direction:column;gap:12px}
+.label{font-size:0.95rem;color:var(--muted)}
+input[type=text]{padding:12px 14px;border-radius:8px;border:1px solid #e6e0d8;font-size:1rem}
+.actions{margin-top:8px}
+.btn{display:inline-block;background:var(--accent);color:#fff;padding:12px 18px;border-radius:8px;text-decoration:none;border:none;cursor:pointer;font-weight:600}
+.btn.alt{background:transparent;color:var(--accent);border:2px solid var(--accent);margin-left:10px;padding:10px 16px}
+.story{color:var(--muted);margin-top:16px;font-size:0.95rem}
+
+/* Result page tweaks */
+.result{display:flex;flex-direction:column;align-items:center;text-align:center}
+.qr-box{background:#fff;padding:18px;border-radius:12px;display:inline-block;margin:14px 0}
+.qr-box img{display:block;width:260px;height:260px;object-fit:contain}
+.meta{color:var(--muted)}
+.note{font-size:0.85rem;color:var(--muted);margin-top:12px}
+
+/* Footer */
+.site-footer{padding:18px 0;color:#4a4a4a}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;font-size:0.95rem}
+.site-footer a{color:var(--accent);text-decoration:none}
+
+@media (max-width:720px){
+  .header-inner,.footer-inner{flex-direction:column;text-align:center;gap:8px}
+  .wrap{padding:18px}
+  .qr-box img{width:200px;height:200px}
+}
+
+/* Gallery / tiles */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:18px;margin-top:18px}
+.tile{background:#fff;border-radius:14px;padding:12px;box-shadow:0 10px 28px rgba(17,24,39,0.06);text-align:center;display:flex;flex-direction:column;align-items:stretch;gap:10px;transition:transform .18s ease,box-shadow .18s ease}
+.tile:hover{transform:translateY(-6px);box-shadow:0 22px 50px rgba(17,24,39,0.09)}
+.thumb{position:relative;display:block;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#fff,#faf6f4);padding:10px}
+.tile img{width:160px;height:160px;object-fit:contain;border-radius:6px;display:block}
+.thumb-overlay{position:absolute;inset:auto 0 0 0;height:36%;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,0.18));opacity:0;transition:opacity .18s ease}
+.thumb:hover .thumb-overlay{opacity:1}
+.thumb-overlay .zoom{display:inline-block;background:rgba(255,255,255,0.95);padding:6px 10px;border-radius:999px;font-weight:700;color:var(--accent);box-shadow:0 6px 18px rgba(17,24,39,0.08)}
+.meta-small{font-size:0.9rem;color:var(--muted);margin-top:6px}
+.meta-title{font-weight:700;color:#222;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+.meta-url{font-size:0.86rem;color:var(--muted);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.meta-url a{color:var(--accent);text-decoration:none}
+.meta-row{font-size:0.82rem;color:var(--muted)}
+.tile .actions{margin-top:8px;display:flex;gap:8px;align-items:center;justify-content:center}
+.btn.small{padding:8px 12px;font-size:0.9rem;border-radius:8px}
+.btn.danger{background:#e53e3e;color:#fff}
+.btn.danger:hover{filter:brightness(.95)}
+.flash{padding:12px;border-radius:10px;margin-top:12px}
+.empty{color:var(--muted);padding:18px}
+
+/* Modal preview */
+.qr-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:1200}
+.qr-modal.open{display:flex}
+.qr-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,15,0.6);backdrop-filter:blur(3px)}
+.qr-modal-content{position:relative;max-width:920px;width:calc(100% - 48px);background:transparent;border-radius:12px;padding:18px;display:flex;gap:16px;align-items:center;z-index:1210}
+.qr-modal-content img{max-width:420px;width:100%;height:auto;border-radius:12px;box-shadow:0 18px 40px rgba(17,24,39,0.18);background:#fff;padding:14px}
+.qr-modal-info{background:rgba(255,255,255,0.98);padding:14px;border-radius:12px;flex:1;box-shadow:0 10px 30px rgba(17,24,39,0.06)}
+.qr-modal-close{position:absolute;right:-8px;top:-8px;background:#fff;border-radius:999px;border:0;width:36px;height:36px;font-size:22px;cursor:pointer;box-shadow:0 6px 18px rgba(17,24,39,0.12)}
+.qr-modal-fname{font-weight:700;margin-bottom:8px}
+.qr-modal-actions{display:flex;gap:8px;align-items:center}
+
+@media (max-width:720px){
+  .qr-modal-content{flex-direction:column;align-items:center}
+  .qr-modal-content img{max-width:320px}
+  .qr-modal-info{width:100%}
+}
+
+@media (max-width:520px){
+  .tile img{width:120px;height:120px}
+  .meta-title,.meta-url{max-width:140px}
+}
+.qr-customize {
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 1em 1.5em;
+  background: #fafbfc;
+  margin-bottom: 1em;
+}
+.qr-customize legend {
+  font-weight: 600;
+  color: #1e1e1e;
+  font-size: 1.1em;
+  padding: 0 8px;
+}
+.qr-row {
+  display: flex;
+  gap: 2em;
+  margin-bottom: 0.7em;
+  flex-wrap: wrap;
+}
+.qr-row label {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 1em;
+}
+.qr-hint {
+  display: block;
+  color: #888;
+  font-size: 0.95em;
+  margin-top: 0.5em;
+}
+
